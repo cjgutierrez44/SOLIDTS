@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Empleado_1 = require("./SRP/Empleado");
+const EmpleadoRepository_1 = require("./SRP/EmpleadoRepository");
+const EmailService_1 = require("./SRP/EmailService");
+const empleado = new Empleado_1.default('Juan', 2000);
+const empleadoRepository = new EmpleadoRepository_1.default();
+const emailService = new EmailService_1.default();
+console.log("============CON SOLID SRP============");
+const salario = empleado.calcularSalario();
+console.log('Salario:', salario);
+empleadoRepository.guardarEmpleado(empleado);
+console.log('Empleado guardado en la base de datos.');
+emailService.enviarCorreo('destinatario@example.com', 'Hola, este es un ejemplo de correo.');
+console.log('Correo enviado.');
+console.log("===================================");
